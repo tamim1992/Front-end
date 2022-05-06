@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
+import MyChart from './MyChart.js';
 
+function FetchApi(props) {
+    var [x, setX] = useState([])
+    var [y, setY] = useState([])
 
-function FetchApi(){
-        const [data, setData] = useState([])
     const apiGet = () => {
-        fetch("https://jsonplaceholder.typicode.com/posts/1")
-        .then((Response) => Response.json())
-        .then((json) => {
-            console.log(json);
-            setData(json);
-        });
+        fetch("http://localhost:5000/" + props.sentiment_url)
+            .then((Response) => Response.json())
+            .then((json) => {
+                // console.log('lol', json);
+                setX([...json.map(e => e[0])])
+                setY([...json.map(e => Math.floor(e[1]))])
+            });
 
     };
 
-
+    console.log('rerender ....', props.sentiment_type)
     return (
         <div className='body'>
 
             <br />
-            <pre> {JSON.stringify(data, null,2)}</pre>
-            <button onClick={apiGet}> TimeLine </button>
-
+            <button onClick={apiGet}> {'Load ' + props.sentiment_type + ' sentiments'} </button>
+            <MyChart
+                x={x}
+                y={y}
+                z={Math.random()}
+                sentiment_type={props.sentiment_type}
+            />
         </div>
     );
 

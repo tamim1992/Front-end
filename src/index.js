@@ -10,8 +10,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <FetchApi />
-    <Neg />
+    <FetchApi
+      sentiment_type={'positive'}
+      sentiment_url={'get_positive_sentiments'}
+    />
+    <FetchApi
+      sentiment_type={'negative'}
+      sentiment_url={'get_negative_sentiments'}
+    />
+    {/* <Neg /> */}
   </React.StrictMode>
 );
 reportWebVitals();

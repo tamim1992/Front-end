@@ -20,9 +20,9 @@
   color: white;
 }
 
-button{
+button {
 
-  background-color: #151715; 
+  background-color: #151715;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -38,4 +38,13 @@ button{
 button:hover {
   background-color: #414442;
   color: white;
+}
+
+.bar {
+  padding-left: 60px;
+  padding: 0 auto;
+}
+
+.sBar:hover {
+  fill: brown;
 }

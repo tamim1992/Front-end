@@ -12,3 +12,11 @@ code {
     monospace;
 }
 
+.bar {
+  padding-left: 60px;
+  padding: 0 auto;
+}
+
+.sBar:hover {
+  fill: brown;
+}
